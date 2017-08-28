@@ -5,7 +5,7 @@ import wiringpi as pi
 INTAVAL = 1
 SLEEPTIME = 3
 SENSOR_PIN = 18
-led_pin = 4
+LED_PIN = 4
 
 GPIO.cleanup()
 GPIO.setmode(GPIO.BCM)
@@ -21,8 +21,8 @@ while True:
   if(GPIO.input(SENSOR_PIN) == GPIO.HIGH) and (st + INTAVAL < time.time()):
     st = time.time()
     print("人を感知しました")
-    pi.digitalWrite(led_pin, 1)
+    pi.digitalWrite(LED_PIN, 1)
   else:
-    pi.digitalWrite(led_pin, 0)
+    pi.digitalWrite(LED_PIN, 0)
 
   time.sleep(SLEEPTIME)
